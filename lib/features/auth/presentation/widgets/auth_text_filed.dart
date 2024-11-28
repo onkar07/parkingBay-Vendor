@@ -23,40 +23,43 @@ class AuthTextFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      focusNode: focusNode,
-      controller: controller,
-      onFieldSubmitted: onFieldSubmitted,
-      decoration: InputDecoration(
-        contentPadding:
-            EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0).r,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10).r,
-          borderSide: const BorderSide(color: AppColor.grey),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10).r,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10).r,
-          borderSide: const BorderSide(color: AppColor.primary),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10).r,
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10).r,
-          borderSide: const BorderSide(color: Colors.red),
-        ),
+        focusNode: focusNode,
+        controller: controller,
+        onFieldSubmitted: onFieldSubmitted,
+        decoration: InputDecoration(
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0).r,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10).r,
+            borderSide: const BorderSide(color: AppColor.grey),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10).r,
+            borderSide: const BorderSide(color: AppColor.primary),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10).r,
+            borderSide: const BorderSide(color: AppColor.primary),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10).r,
+            borderSide: const BorderSide(color: Colors.red),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10).r,
+            borderSide: const BorderSide(color: Colors.red),
+          ),
+          fillColor: AppColor.white,
+          focusColor: AppColor.white,
+          filled: filled,
+          hintText: hintText,
 
-        fillColor: AppColor.white,
-        focusColor: AppColor.white,
-        filled: filled,
-        hintText: hintText,
-        // You can change this text to something more descriptive
-        hintStyle:
-            Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColor.grey),
-      ),
-    );
+          // You can change this text to something more descriptive
+          hintStyle: Theme.of(context)
+              .textTheme
+              .bodySmall
+              ?.copyWith(color: AppColor.grey),
+        ),
+        cursorColor: AppColor.primary);
   }
 }
