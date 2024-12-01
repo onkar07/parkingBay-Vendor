@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vendor_app/controller/sharedPref/db_helper.dart';
+import 'package:vendor_app/core/routing/app_route_name.dart';
 import 'package:vendor_app/core/service/auth_service/auth_service.dart';
 import 'package:vendor_app/core/service/helper/AppException.dart';
+import 'package:vendor_app/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:vendor_app/modul/authentication/LoginModal.dart';
 import 'package:vendor_app/view/screens/authentication/my_home_screen.dart';
 import 'package:vendor_app/view/widget/dialog_helper.dart';
@@ -17,14 +19,18 @@ class LoginController with ChangeNotifier {
   TextEditingController passwordController =  TextEditingController();
 
   login(BuildContext context) {
-    LoginModal loginModal = LoginModal(authUser: "auth@auth.com", authPassword: "auth#!123");
+    LoginModal loginModal = LoginModal(authUser: "auth@auth.com", authPassword: "auth#!123",
+    email: userNameController.text,password: passwordController.text
+    );
     DialogHelper.showCircleProgressIndicator(context);
     FocusScope.of(context).unfocus();
+    print(loginModal.toJson());
     authService.login(loginModal).then((onValue) {
       DbHelper.saveToken(onValue.token!);
       DbHelper.saveUserInfo(onValue);
       DialogHelper.hideProgress(context);
-    Navigator.push(context, MaterialPageRoute(builder: (_)=>MyHomePage(title: "Home Page")));
+    Navigator.push(context, MaterialPageRoute(builder: (_)=>DashboardScreen()));
+    //   Navigator.pushNamedAndRemoveUntil(context, AppRouteName.dashBoard, (route) => false);
     }).catchError((onError) {
       DialogHelper.hideProgress(context);
       if(onError is AppException){

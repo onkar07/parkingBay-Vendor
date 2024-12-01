@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:vendor_app/controller/sharedPref/share_pref.dart';
 import 'package:vendor_app/features/auth/controller/login_controller.dart';
 import 'package:vendor_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:vendor_app/features/dashboard/presentation/controller/dashboard_controller.dart';
 import 'package:vendor_app/view/config/Themes.dart';
 import 'package:vendor_app/view/screens/authentication/my_home_screen.dart';
 
@@ -29,6 +30,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider<LoginController>(
             create: (_) => LoginController()),
+        ChangeNotifierProvider<DashboardController>(
+            create: (_) => DashboardController()),
       ],
       child: ScreenUtilInit(
           minTextAdapt: true,

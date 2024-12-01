@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vendor_app/view/config/Colors.dart';
 
-class AuthButton extends StatelessWidget {
-  const AuthButton({super.key, required this.onPressed, required this.buttonTitle});
+class DashboardButton extends StatelessWidget {
+  const DashboardButton({super.key,required this.onPressed, required this.buttonTitle});
+
   final VoidCallback onPressed;
   final String buttonTitle;
 

@@ -31,7 +31,7 @@ class AuthTextFiled extends StatelessWidget {
               EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0).r,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10).r,
-            borderSide: const BorderSide(color: AppColor.grey),
+            borderSide: const BorderSide(color: AppColor.background),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10).r,
@@ -51,6 +51,8 @@ class AuthTextFiled extends StatelessWidget {
           ),
           fillColor: AppColor.white,
           focusColor: AppColor.white,
+          // filled: controller.text.isEmpty &&
+          //     !focusNode!.hasFocus,
           filled: filled,
           hintText: hintText,
 
